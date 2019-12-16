@@ -1,0 +1,2294 @@
+<style>
+  @media (max-width: 767px){
+    .game__logo {
+      width: 260px;
+      max-width: calc(100vw - 100px);
+    }
+  }
+  #rt-game-form {
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  @media (max-width: 767px) {
+    .color-line--is-paragraph {
+      left: 15px;
+    }
+
+    .rt-banner--full-screen .color-line--is-paragraph {
+      left: 10px;
+    }
+
+    .color-line--is-paragraph .color-line-text {
+      background-color: #ff4f12 !important;
+      padding-left: 0px;
+      padding-top: 5px;
+      padding-bottom: 10px;
+      box-decoration-break: clone !important;
+      border-radius: 0;
+      -webkit-box-shadow: 15px 0 0 #ff4f12, -15px 0 0 #ff4f12 !important;
+    ;
+      box-shadow: 15px 0 0 #ff4f12, -15px 0 0 #ff4f12 !important;
+    ;
+    }
+  }
+
+  .rt-button-full-white,
+  .rt-button-full-white:hover {
+    background-color: #fff !important;
+    color: #000 !important;
+  ;
+    border-color: hsla(0, 0%, 100%, 1) !important;
+  ;
+  }
+
+  .rt-button-full-white .ripple-wave {
+    background-color: #fff
+  }
+
+  .rt-l-game {
+    overflow-x: visible !important;
+    min-width: 99vw;
+  }
+
+  @media (min-width: 1024px) {
+    #pageContent {
+      max-width: 100vw;
+      overflow: hidden;
+    }
+  }
+
+  @media (hover: hover) {
+    .rt-button-full-white:hover {
+      border-color: hsla(0, 0%, 100%, .5) !important;
+      background-color: hsla(0, 0%, 100%, .5) !important;
+    }
+  }
+
+  .rt-button-full-white:active {
+    background-color: hsla(0, 0%, 100%, .5)
+  }
+
+  .rt-button-full-white[disabled] {
+    color: rgba(16, 24, 40, .1);
+    background-color: transparent
+  }
+
+  .rt-game-banner {
+    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    background-color: #000;
+    position: relative;
+  }
+
+  @supports (height: fit-content) {
+    .rt-game-banner {
+      height: auto;
+    }
+  }
+
+  .rt-game-banner .color-line-wrapper {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .rt-game-banner__content {
+    min-height: 100%;
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rt-game-banner__item {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-top: 9vh;
+    padding-bottom: 9vh;
+    opacity: 0;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.4s;
+    transition-property: opacity;
+  }
+
+  @media (max-width: 767px) {
+    .rt-game-banner__item {
+      padding-top: 168px;
+    }
+  }
+
+  @media (max-height: 800px) and (min-width: 1024px) {
+    .rt-game-banner__item {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+  }
+
+  .rt-game-banner__item--is-active {
+    position: relative;
+    opacity: 1;
+    flex: 1;
+    z-index: 2;
+  }
+
+  .rt-game-banner__icons {
+    display: flex;
+    align-items: center;
+    padding-bottom: 34px;
+    position: relative;
+  }
+
+  @media (max-width: 767px) {
+    .rt-game-banner__icons {
+      padding-bottom: 25px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
+  .rt-game-banner__icons__item+.rt-game-banner__icons__item {
+    margin-left: 32px;
+  }
+
+  .rt-game-banner__icons__item-img {
+    max-height: 38px;
+  }
+
+  @media (max-width: 767px) {
+    .rt-game-banner__icons__item-img {
+      max-height: 24px;
+    }
+  }
+
+  .rt-game-arrow-contaner {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .rt-game-banner-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+
+  @media (max-width: 767px) {
+    .rt-game-banner-image {
+      height: 260px;
+    }
+  }
+
+  .rt-game-arrow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 50px;
+    height: 50px;
+    z-index: 10;
+    cursor: pointer;
+  }
+
+  .rt-game-arrow-prew {
+    left: 0;
+  }
+
+  .rt-game-arrow-next {
+    right: 0;
+  }
+
+  .rt-game-banner-round-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .rt-game-banner__paginator {
+    text-align: center;
+    padding-top: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  @media (max-width: 767px) {
+    .rt-game-banner__paginator {
+      position: sticky;
+      background-color: #122545;
+      padding-top: 15px;
+      z-index: 20;
+      padding-bottom: 15px;
+    }
+  }
+
+  .rt-game-banner__paginator-item {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 3;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    width: auto;
+  }
+
+  .rt-game-banner__paginator-item:before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    box-sizing: border-box;
+    border: 2px solid #fff;
+    display: block;
+    border-radius: 50%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.3s;
+    transition-property: background-color, width, height, border, margin, left, right;
+  }
+
+  @media (max-width: 767px) {
+    .rt-game-banner__paginator-item:before {
+      display: none;
+    }
+  }
+
+  .rt-game-banner__paginator-item+.rt-game-banner__paginator-item {
+    margin-left: 20px;
+  }
+
+  .rt-game-banner__paginator-item__icon {
+    width: inherit;
+    height: inherit;
+    transform: rotate(-90deg);
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.3s;
+    transition-property: stroke-dasharray, stroke-width;
+    stroke: #fff;
+    stroke-dasharray: 0;
+    stroke-width: 0;
+  }
+
+  @media (hover: hover) {
+    .rt-game-banner__paginator-item:hover .rt-game-banner__paginator-item__icon {
+      stroke-dasharray: 60;
+      stroke-width: 1px;
+    }
+  }
+
+  .rt-game-banner__paginator-item--is-active .rt-game-banner__paginator-item__icon {
+    stroke-dasharray: 60;
+    stroke-width: 1px;
+  }
+
+  @media (max-width: 767px) {
+    .rt-game-banner__paginator-item:before {
+      content: '';
+      display: block;
+      background-color: #ff4f12;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      border: none;
+      width: 100%;
+      height: 0;
+      border-radius: 0;
+      top: inherit;
+      bottom: -17px;
+      opacity: 0;
+      transition-timing-function: ease-in-out;
+      transition-duration: 0.3s;
+      transition-property: height, opacity;
+    }
+  }
+
+  .rt-game-banner__paginator-item__span {
+    display: none;
+  }
+
+  @media (max-width: 767px) {
+    .rt-game-banner__paginator-item__span {
+      display: block;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .rt-game-banner__paginator-item--is-active:before {
+      height: 2px;
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 767px) and (hover: hover) {
+    .rt-game-banner__paginator-item:hover:before {
+      height: 2px;
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .rt-game-more-info {
+      border-width: 0;
+      margin-left: 10px !important;
+      position: relative;
+      z-index: 10;
+    }
+
+    .rt-game-more-info .ripple {
+      padding: 0;
+    }
+  }
+
+  .rt-game-more-info__icon {
+    display: none;
+  }
+
+  @media (max-width: 767px) {
+    .rt-banner--fixed-image.rt-banner--full-screen {
+      overflow: hidden;
+    }
+
+    .rt-game-more-info__icon {
+      margin-left: 10px;
+      position: relative;
+      bottom: -2px;
+      display: block;
+    }
+  }
+
+  @media (min-width: 767px) {
+    .rt-game-text-link-center {
+      position: absolute;
+      bottom: 100px;
+      left: 0;
+      right: 0;
+    }
+  }
+</style>
+
+<style>
+  .rt-font-phone {
+    font-size: 28px;
+  }
+
+  @media (max-width: 1024px) {
+    .rt-font-phone {
+      font-size: 24px;
+    }
+  }
+
+  .rt-main-footer {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-top: 2px solid #585d68;
+  }
+
+  .rt-main-footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: left center right;
+    align-items: center;
+  }
+
+  @media (max-width: 1024px) {
+    .rt-main-footer-container {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .rt-main-footer-container {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+    }
+  }
+
+  .rt-main-footer-copyright {
+    grid-column-start: 1;
+    grid-column-end: 1;
+  }
+
+  @media (max-width: 1024px) {
+    .rt-main-footer-copyright {
+      grid-column-start: 1;
+      grid-column-end: 1;
+      grid-row-start: 2;
+      grid-row-end: 2;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .rt-main-footer-copyright {
+      grid-column-start: 1;
+      grid-column-end: 1;
+      grid-row-start: 2;
+      grid-row-start: 2;
+    }
+  }
+
+  .rt-main-footer-social {
+    grid-column-start: 2;
+    grid-column-end: 2;
+  }
+
+  @media (max-width: 1024px) {
+    .rt-main-footer-social {
+      grid-column-start: 2;
+      grid-column-end: 2;
+      grid-row-start: 1;
+      grid-row-end: 3;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .rt-main-footer-social {
+      grid-column-start: 1;
+      grid-column-end: 1;
+      grid-row-start: 3;
+      grid-row-start: 3;
+    }
+  }
+
+  .rt-main-footer-phone {
+    grid-column-start: 3;
+    grid-column-end: 3;
+    text-align: right;
+  }
+
+  @media (max-width: 1024px) {
+    .rt-main-footer-phone {
+      grid-column-start: 1;
+      grid-column-end: 1;
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .rt-main-footer-phone {
+      grid-column-start: 1;
+      grid-column-end: 1;
+      grid-row-start: 1;
+      grid-row-start: 1;
+    }
+  }
+
+  .flex-column.row.flex-fill.max-full-width.flex-column.rt-banner__item {
+    flex-flow: column;
+    flex-wrap: unset;
+  }
+
+  .rt-button-orange.js-form-button.md-d-none.rt-button.rt-button-with-ripple {
+    position: relative;
+    z-index: 9999;
+  }
+
+  .d-inline.rt-space-left2.rt-md-space-left05.rt-md-space-left-none {
+    position: relative;
+    z-index: 9999;
+  }
+
+  @media (min-width: 1025px) and (min-height: 750px) {
+    .js-game-bonus {
+      padding-bottom: 20px;
+    }
+
+    .flex-column.row.flex-fill.max-full-width.flex-column.rt-banner__item {
+      /*min-height: 500px!important;*/
+      overflow: hidden;
+    }
+
+    .rt-banner-container .rt-col-12 {
+      flex: 1;
+    }
+  }
+
+  .promo-shelf__list .rt-pseudo-col {
+    opacity: 1;
+    position: relative;
+    max-width: 12.5%;
+    right: 0;
+    left: 0;
+    visibility: visible !important;
+  }
+
+  .promo-shelf__list .rt-col-2 {
+    max-width: 12.5%;
+  }
+
+  .promo-shelf__info {
+    opacity: 1;
+    font-size: 16px;
+  }
+
+  @media (max-width: 1024px) {
+    .promo-shelf__list .rt-col-2 {
+      max-width: 20%;
+      min-width: 20%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .rt-banner--background-main-color {
+      overflow: hidden;
+    }
+
+    .promo-shelf__list .rt-col-2 {
+      max-width: 47vw;
+      min-width: 47vw;
+    }
+  }
+
+  .promo-shelf-logo {
+    position: absolute;
+    margin-top: -20px;
+    width: 299px;
+    height: 45px;
+  }
+
+  @media (max-width: 768px) {
+    .promo-shelf-logo {
+      margin-top: -16px;
+      width: 266px;
+      height: 40px;
+    }
+  }
+
+  .promo-shelf__list .rt-col-2 {
+    -webkit-transition-timing-function: ease-in-out;
+    -moz-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+    -ms-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-duration: .5s;
+    -moz-transition-duration: .5s;
+    -o-transition-duration: .5s;
+    -ms-transition-duration: .5s;
+    transition-duration: .5s;
+    -webkit-transition-property: margin;
+    -moz-transition-property: margin;
+    -o-transition-property: margin;
+    -ms-transition-property: margin;
+    transition-property: margin;
+  }
+
+  .promo-shelf__list-arrow {
+    width: 110px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    z-index: 3;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .promo-shelf__list-arrow {
+      width: 104px;
+    }
+  }
+
+  .promo-shelf__list-arrow--left {
+    left: 0px;
+    background-image: linear-gradient(to left, rgba(16, 24, 40, 0), #272f3d);
+  }
+
+  @media (max-width: 768px) {
+    .promo-shelf__list-arrow--left {
+      left: calc(13.5vw + 34px);
+    }
+  }
+
+  .promo-shelf__list-arrow--right {
+    right: 0px;
+    background-image: linear-gradient(to right, rgba(16, 24, 40, 0), #272f3d);
+  }
+
+  @media (max-width: 768px) {
+    .promo-shelf__list-arrow--right {
+      left: calc(15.5vw + 100vw - 58px);
+      right: initial;
+    }
+  }
+
+  .promo-shelf__list-arrow__icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 12px;
+    height: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .promo-shelf__list {
+      width: 141vw;
+      margin-left: -22.5vw;
+      margin-right: 0;
+    }
+  }
+
+  .promo-shelf__list {
+    position: relative;
+    overflow: hidden;
+    flex-wrap: inherit;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .promo-shelf__list:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 10%;
+
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+  }
+
+  .promo-shelf__list:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 10%;
+    background-image: linear-gradient(to left, rgba(16, 24, 40, 0), #272f3d);
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+  }
+
+  .rt-l-bottom-scroll-arrow,
+  .game-item {
+    cursor: pointer;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  .text-field--purple .input-element:focus+.floating-placeholder,
+  .text-field--purple .input-element:focus+.text-field__border+.floating-placeholder,
+  .text-field--purple .input-element:focus+.text-field__line+.floating-placeholder,
+  .text-field--purple .textarea-element:focus+.floating-placeholder,
+  .text-field--purple .textarea-element:focus+.text-field__border+.floating-placeholder,
+  .text-field--purple .textarea-element:focus+.text-field__line+.floating-placeholder {
+    color: #ff4f12 !important;
+  }
+
+  #pageFooter {
+    border-top: 2px solid #585D68 !important;
+  }
+
+  .rtk-footer {
+    border-top-width: 0 !important;
+  }
+
+  @media (max-width: 767px) {
+    .rt-md-reverse-left-half {
+      margin-left: -10px;
+    }
+  }
+
+  .color-line-paragraph-icon {
+    display: inline;
+    margin-left: -85px;
+    top: 0.78em;
+    position: relative;
+  }
+
+  @media (max-width: 767px) {
+
+    .rt-banner--full-screen .rt-font-banner-label {
+      position: relative;
+      left: 10px;
+    }
+  }
+
+  .conditions-link {
+    color: #ff4f12 !important;
+    text-decoration: none !important;
+    border-bottom-width: 0px !important;
+  }
+
+  .text-field--purple .input-element:focus+.text-field__line+.floating-placeholder {
+    color: #ff4f12 !important;
+  }
+
+  .rt-dark-theme .text-field__line:before {
+    background: #ff4f12 !important;
+  }
+
+  @media (max-width: 1024px) {
+    .banner-first .rt-banner--full-screen .rt-banner-image {
+      height: inherit !important;
+      max-height: inherit !important;
+    }
+  }
+
+  .banner-first .rt-banner__bottom-content {
+    max-height: inherit !important;
+  }
+
+  .rt-fill-viewport {
+    min-width: 99vw;
+  }
+
+  .rt-fill-viewport.relative.js-screen {
+    overflow-y: hidden;
+  }
+
+  .checkbox.user-checkbox,
+  .not-user-account form {
+    position: relative;
+    z-index: 80;
+  }
+
+  .rt-price__opinion {
+    margin-right: 5px;
+  }
+
+  .rt-dark-theme .rt-price,
+  .rt-dark-theme .rt-price__value {
+    color: #fff;
+  }
+
+  @media (max-width: 767px) {
+    .rt-md-font-left {
+      text-align: left;
+    }
+
+    .rt-l-bottom-scroll-arrow {
+      width: 30px;
+    }
+  }
+
+  @media (min-width: 767px) and (max-width: 1024px) {
+    .color-line-paragraph-icon {
+      bottom: -36px;
+    }
+  }
+
+  body:not(.screen-opened) .main-navigation__burger-link .burger-rect {
+    background-color: #fff;
+  }
+
+  body:not(.screen-opened) .main-navigation__panels-area__logo-xpart .landing_logo {
+    display: none;
+  }
+
+  .main-navigation {
+    position: absolute !important;
+  }
+
+  .main-wrapper.basic #pageFooter .rtk-footer {
+    background-color: #101828;
+  }
+
+  #pageFooter {
+    border-top: 1px solid rgba(227, 234, 236, 30);
+  }
+
+  .rtk-footer__copyright {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .main-wrapper.basic #pageFooter .rtk-footer__copyright,
+  .rtk-date,
+  .rtk-footer__phone-number {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+
+  .rtk-footer__phone-number {
+    font-size: 28px !important;
+  }
+
+  .main-wrapper.basic .main-navigation.content-is-scrolled {
+    background: transparent;
+  }
+
+  .banner__arrow {
+    position: absolute;
+    top: 50%;
+    height: 62px;
+    width: 30px;
+    cursor: pointer;
+  }
+
+  .banner__arrow-right {
+    right: -50px;
+  }
+
+  .rt-orange-breaker-item {
+    padding-right: 15px;
+  }
+
+  .rt-orange-breaker-item+.rt-orange-breaker-item {
+    padding-left: 45px;
+    position: relative;
+  }
+
+  .rt-orange-breaker-item+.rt-orange-breaker-item:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 32px;
+    height: 42px;
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMzJweCIgaGVpZ2h0PSI0MnB4IiB2aWV3Qm94PSIwIDAgMzIgNDIiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUzICg3MjUyMCkgLSBodHRwczovL3NrZXRjaGFwcC5jb20gLS0+CiAgICA8dGl0bGU+TGluZSAzIENvcHkgNDwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxnIGlkPSJEZXNpZ24iIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZS1saW5lY2FwPSJzcXVhcmUiPgogICAgICAgIDxnIGlkPSI1NTMtTFBfSWdyb3ZvaS00Z2FtZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI5OS4wMDAwMDAsIC00NzUuMDAwMDAwKSIgZmlsbC1ydWxlPSJub256ZXJvIiBzdHJva2U9IiNGRjRGMTIiIHN0cm9rZS13aWR0aD0iNCI+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik0zMDIsNTE0IEwzMjgsNDc4IiBpZD0iTGluZS0zLUNvcHktNCI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+");
+  }
+
+  .banner__arrow-right:before {
+    content: '';
+    height: 37px;
+    width: 2px;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    background-color: #fff;
+    position: absolute;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  .banner__arrow-right:after {
+    content: '';
+    height: 37px;
+    width: 2px;
+    bottom: 0;
+    right: 10px;
+    position: absolute;
+    background-color: #fff;
+    position: absolute;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .banner__arrow-left {
+    left: -50px;
+  }
+
+  .form__label_animated {
+    padding-right: 0 !important;
+  }
+
+  .banner__arrow-left:before {
+    content: '';
+    height: 37px;
+    width: 2px;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    background-color: #fff;
+    position: absolute;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .banner__arrow-left:after {
+    content: '';
+    height: 37px;
+    width: 2px;
+    bottom: 0;
+    left: 10px;
+    position: absolute;
+    background-color: #fff;
+    position: absolute;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  .rt-col {
+    width: 20%;
+  }
+
+  .game-banner-label {
+    margin-top: 6.5vh;
+    height: 87px;
+  }
+
+  .rt-space-bottom6 {
+    margin-bottom: 120px;
+  }
+
+  .flex-row-reverse {
+    flex-direction: row-reverse !important;
+  }
+
+  .main-navigation__panels-area {
+    flex-direction: row-reverse !important;
+  }
+
+  .rt-font-banner-label-bold .color-line-text {
+    white-space: nowrap;
+  }
+
+  .color-line-paragraph-icon {
+    display: inline;
+    margin-left: -65px;
+    top: 0.76em;
+    position: relative;
+  }
+
+  @media (max-width: 1280px) {
+    .color-line-paragraph-icon {
+      top: 0.77em;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .color-line-paragraph-icon {
+      top: 0.88em;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .color-line-paragraph-icon {
+      top: 0.72em;
+      margin-left: -60px;
+    }
+  }
+
+  .rt-banner--background-main-color {
+    background-color: #101828;
+  }
+
+  .rt-price__option-value {
+    display: inline-block;
+    color: white;
+    font-size: 54px;
+    line-height: 45px;
+    font-weight: 400;
+    padding-left: 5px;
+    padding-right: 5px;
+    vertical-align: baseline;
+  }
+
+  @media (max-width: 1024px) {
+    .rt-dark-theme .color-white .rt-price__option-value {
+      font-weight: normal !important;
+    }
+  }
+
+  @media (min-width: 1023px) {
+    .rt-container.rt-banner-container {
+      overflow: hidden;
+    }
+  }
+
+  .js-screen .color-line-paragraph-icon {
+    right: -20px;
+  }
+
+  .game__logo {
+    position: absolute;
+    top: 27px;
+    left: 10px
+  }
+
+  @media (max-width: 767px) {
+    .rt-col-12.max-full-width.flex-fill.rt-md-fill-viewport-height.flex-center-center {
+      margin-top: 10vh;
+    }
+
+    .rt-md-fill-viewport-height {
+      min-height: 450px;
+    }
+
+    .color-line-wrapper {
+      margin-right: 10px;
+      padding-bottom: 10px;
+    }
+
+    .rt-font-banner-label-bold .color-line-text {
+      white-space: normal;
+    }
+
+    .js-screen .rt-font-banner-label-bold .color-line-text .color-line-paragraph-icon {
+      top: 33px;
+    }
+
+    .rt-banner-container .rt-col-4 {
+      min-height: auto;
+      height: auto;
+    }
+  }
+
+
+  @media (min-width: 768px) {
+    .game-banner-label {
+      height: 15vh;
+      min-height: 98px !important;
+    }
+
+    .js-game-bonus md-d-flex:hover .js-game-text {
+      color: #fff;
+    }
+
+    .js-game-bonus md-d-flex:hover .js-game-text.color-white05 {
+      color: rgba(255, 255, 255, 0.7)
+    }
+  }
+
+  .js-game-icon {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .js-game-text {
+    margin-top: 0px;
+  }
+
+  .js-game-text+.js-game-text {
+    margin-top: 0;
+  }
+
+  .js-game-icon--weapon1 {
+    height: 100px;
+    width: 220px;
+  }
+
+  .js-game-icon--weapon2 {
+    height: 100px;
+    width: 226px;
+  }
+
+  .js-game-icon,
+  .js-game-text {
+    -webkit-transition-timing-function: ease-in-out;
+    -moz-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+    -ms-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-duration: .2s;
+    -moz-transition-duration: .2s;
+    -o-transition-duration: .2s;
+    -ms-transition-duration: .2s;
+    transition-duration: .2s;
+    -webkit-transition-property: height, opacity, width, left, right, top, font-size, color;
+    -moz-transition-property: height, opacity, width, left, right, top, font-size, color;
+    -o-transition-property: height, opacity, width, left, right, top, font-size, color;
+    -ms-transition-property: height, opacity, width, left, right, top, font-size, color;
+    transition-property: height, opacity, width, left, right, top, font-size, color;
+  }
+
+  /* #3187 */
+  .browser-Safari .rt-banner .rt-banner__item {
+    opacity: 0;
+    -webkit-transition: opacity 0.8s ease-in-out 0.2s;
+    -moz-transition: opacity 0.8s ease-in-out 0.2s;
+    -o-transition: opacity 0.8s ease-in-out 0.2s;
+    -ms-transition: opacity 0.8s ease-in-out 0.2s;
+    transition: opacity 0.8s ease-in-out 0.2s;
+  }
+
+  .browser-Safari .rt-banner .rt-banner__item--is-active {
+    animation-name: unset;
+    overflow: hidden;
+    opacity: 1;
+    z-index: 1000;
+  }
+
+  .rt-price__info-item {
+    text-align: left;
+  }
+
+  .rt-dark-theme .floating-placeholder {
+    color: #878B93;
+  }
+
+  .banner-first .rt-banner__item {
+    left: 10px;
+  }
+
+
+  .banner-first .rt-banner__item--is-active {
+    left: 0;
+  }
+
+  @media (max-width: 767px) {
+    .rt-price__value {
+      padding-left: 0 !important;
+    }
+
+    .rt-price__value,
+    .rt-price__option-value {
+      font-size: 38px;
+    }
+
+    .rt-orange-breaker-item {
+      padding-right: 0;
+    }
+
+    .rt-orange-breaker-item+.rt-orange-breaker-item+.rt-orange-breaker-item {
+      padding-left: 0 !important;
+    }
+
+    .rt-orange-breaker-item+.rt-orange-breaker-item+.rt-orange-breaker-item:before {
+      display: none;
+    }
+
+
+    .game-banner-label {
+      margin-top: 4vh;
+      height: 20vh !important;
+      overflow: hidden;
+    }
+
+    .game-banner-label img {
+      max-width: 13vw !important;
+      height: auto !important;
+    }
+
+    .circle-switcher__item {
+      width: auto !important;
+      max-width: initial !important;
+      border-width: 0px;
+    }
+
+    .circle-switcher__item:after {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 2px;
+      width: 0px;
+      background-color: #101828;
+      bottom: -18px;
+      -webkit-transition-timing-function: ease-in-out;
+      -moz-transition-timing-function: ease-in-out;
+      -o-transition-timing-function: ease-in-out;
+      -ms-transition-timing-function: ease-in-out;
+      transition-timing-function: ease-in-out;
+      -webkit-transition-duration: .2s;
+      -moz-transition-duration: .2s;
+      -o-transition-duration: .2s;
+      -ms-transition-duration: .2s;
+      transition-duration: .2s;
+      -webkit-transition-property: background-color, width !important;
+      -moz-transition-property: background-color, width !important;
+      -o-transition-property: background-color, width !important;
+      -ms-transition-property: background-color, width !important;
+      transition-property: background-color, width !important;
+    }
+
+    .circle-switcher__item:hover:after,
+    .rt-banner--run-timer:after {
+      background-color: #FF4F12;
+      width: 100%;
+    }
+
+    .circle-switcher__item:before {
+      content: 'Wargaming';
+      width: auto;
+      height: auto;
+      color: white;
+      animation: none;
+      border-width: 0 !important;
+      display: block;
+      position: relative;
+    }
+
+    .circle-switcher__item+.circle-switcher__item:before {
+      content: 'Warface';
+    }
+
+    .circle-switcher__item+.circle-switcher__item+.circle-switcher__item:before {
+      content: '4Game';
+    }
+
+    .rt-orange-breaker-item+.rt-orange-breaker-item {
+      padding-left: 30px;
+    }
+
+    .js-game-icon {
+      width: 25vw !important;
+      height: auto;
+    }
+
+    .rt-banner--full-screen .rt-banner-image {
+      margin-top: 50px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+
+    .circle-switcher__icon {
+      display: none;
+    }
+
+    .circle-switcher--top {
+      top: 0;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      background-color: #101828;
+      font-weight: 500;
+    }
+
+    .circle-switcher__item.rt-banner--run-timer {
+      position: relative;
+    }
+
+    .game__logo {
+      width: 260px;
+    }
+  }
+
+  .ai-baseline {
+    align-items: baseline;
+  }
+
+  @media (min-width: 1025px) {
+    .bottom-banner .rt-banner {
+      overflow: hidden;
+    }
+
+    .bottom-banner .rt-banner-container {
+      overflow: hidden;
+    }
+
+    .rt-banner__item,
+    .rt-banner-image {
+      max-height: 100vh;
+      height: 100vh;
+    }
+
+    .banner-first .rt-banner-container .rt-col-12.d-flex {
+      max-height: 100vh;
+    }
+  }
+
+  .zayavka {
+    min-height: 90vh;
+    background-image: url('/sites/default/files/img/game/zayavka.jpg');
+    background-position: 70% 50%;
+    background-repeat: no-repeat;
+  }
+
+  @media (max-width: 767px) {
+    .rt-md-viewport-height-reset {
+      min-height: auto;
+    }
+
+    .rt-button-md--is-block {
+      display: block;
+      min-width: 100%;
+    }
+
+    .zayavka {
+      background-image: none;
+    }
+  }
+
+  .rt-banner-for-game {
+    background-image: url('/sites/default/files/img/game/Rostelecom_fin%20Copy%204%20(1).png');
+    background-position: 80% 50%;
+    background-size: cover;
+    background-repeat: no-repeat
+  }
+
+  @media (max-width: 1024px) {
+    .rt-banner-for-game {
+      background-image: url('/sites/default/files/img/game/KV_Final(4)-03%20(1).png');
+
+    }
+  }
+
+  @media (max-width: 768px) {
+    .rt-banner-for-game {
+      background-size: contain;
+      background-position: top center;
+      background-image: url('/sites/default/files/img/game/KV_Final(4)-03-1%20(1).png');
+
+    }
+  }
+
+  .change-region._rounded {
+    position: absolute;
+    right: 0;
+    top: 40px;
+    color: #000;
+  }
+
+  @media (max-width: 768px) {
+    .change-region._rounded {
+      top: 30px;
+      right: 20px;
+      padding: 0;
+    }
+  }
+
+  #header {
+    background-color: transparent;
+    width: 100%;
+    right: 0;
+  }
+
+  .change-region._rounded {
+    z-index: 10;
+  }
+
+  .main-navigation {
+    min-height: auto;
+    width: 100%;
+  }
+
+  .main-navigation__screen,
+  .header__section {
+    -webkit-overflow-scrolling: touch;
+    background-color: #fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #000;
+    display: block;
+    height: 0;
+    overflow: hidden;
+    -ms-overflow-style: none;
+    overflow-y: visible;
+    position: relative;
+    transform: translateZ(0);
+    white-space: nowrap;
+    z-index: 11;
+  }
+
+  .main-navigation__screen-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 14px;
+    height: 14px;
+    background: url("/themes/rt_ru__super/images/close.svg");
+    cursor: pointer;
+    display: block;
+    opacity: 0;
+    -webkit-transition: opacity .5s ease;
+    transition: opacity .5s ease;
+    z-index: 12;
+  }
+
+  .h-blank .change-region {
+    padding-left: 24px;
+  }
+
+  .main-navigation__screen_regions.visible {
+    height: 100vh !important;
+  }
+
+  body.screen-opened .main-navigation__screen-close {
+    opacity: 1;
+  }
+</style>
+
+<style>
+  div.d-flex:nth-child(3)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1),
+  div.rt-space-bottom6:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) {
+    text-decoration: line-through;
+    font-size: 24px;
+    font-weight: 200;
+    opacity: 0.5;
+  }
+</style>
+
+<header id="header" class="header main-navigation stay h-blank">
+  <div class="main-navigation__layouts">
+    <div class="rt-container">
+      <div class="rt-col-12"><span @click="toggleHeader('')" class="main-navigation__screen-close"></span></div>
+    </div>
+    <regions class="main-navigation__screen_regions" :section-name="sectionName" @emit-geo="setGeo"></regions>
+  </div>
+  <div class="main-navigation__box">
+    <div class="rt-container">
+      <div class="rt-col-12 rt-md-space-vertical rt-space-vertical2 text-right">
+        <a @click="toggleHeader('regions')" class="change-region _rounded"><i><svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                                                                   height="18" viewBox="0 0 18 18">
+          <path fill="#7800ff" fill-rule="evenodd" d="M0 9h9v9h1l8-18L0 8z" /></svg></i><span class="geo-name md-d-none rt-space-left0-half"></span></a>
+      </div>
+    </div>
+  </div>
+  <region-notification-dark></region-notification-dark>
+</header>
+
+<div class="wc-inline">
+  <div class="rt-l-game rt-dark-theme">
+    <div class="color-block--game-promo-color rt-banner-for-game  rt-fill-viewport rt-md-viewport-height-reset js-screen">
+      <div class="rt-container relative">
+        <div class="row">
+          <div class="rt-col-12">
+            <div class="flex-column d-space-between rt-fill-viewport-height rt-md-viewport-height-reset d-flex rt-md-space-horizontal05 rt-space-left05 rt-td-space-left-none rt-md-space-right-none">
+              <div class="flex-fill rt-l-game-space"></div>
+              <div class="flex-fill flex-start-center rt-md-space-top35 rt-md-space-horizontal05">
+                <div class="flex-column rt-td-space-left05 rt-md-space-left-none">
+                  <img src="/sites/default/files/img/icon/games_logo.svg" class="game__logo rt-space-left05 rt-td-space-left05 rt-md-space-left05">
+                  <div class="rt-l-game-main-text">
+                    <rt-color-line-text :is-white-color="true" fill-color="orange" :hide-arrow="true">
+                      <template slot="label">Победа&nbsp;<br class="md-d-block">для каждого</template>
+                      <template slot="content">Мощный
+                        интернет&nbsp;и&nbsp;<br>уникальные
+                        игровые бонусы
+                      </template>
+                    </rt-color-line-text>
+                  </div>
+                  <div class="d-flex rt-space-top25 rt-md-space-top-none  md-d-inline-block">
+                    <div class="rt-orange-breaker-item md-d-inline-block d-flex">
+                      <epc-price is-value-only class="color-white md-d-inline-block" :data="{ lcs: 'active', minPrice: false, offerIds: ['403788683790'] }"></epc-price>
+                      <epc-price class="color-white md-d-inline-block" :data="{ lcs: 'active', minPrice: false, offerIds: ['403794182990'] }"></epc-price>
+                    </div>
+                    <div class="rt-orange-breaker-item md-d-inline-block">
+                      <div class="rt-price rt-price-without-space color-white">
+                        <div class="rt-price__option-value color-white">
+                          <epc-data :data="{ id: 403788683790, lcs: 'active' }">
+                            <epc-options :data="{ comp: 'Main_Internet_service', prop: 'internetSpeedValue', minInternetSpeed: false }"></epc-options>
+                          </epc-data>
+                        </div>
+                        <div class="rt-price__info">
+                          <div class="rt-price__info-item">Мбит</div>
+                          <div class="rt-price__info-item">сек.</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="rt-font-paragraph rt-space-top05">первый месяц по сниженной цене</p>
+                  <div class="rt-space-top25 rt-md-space-top15">
+                    <rt-button :ga="{'type':'button'}" v-rt-scroll-to-on-click='{"scrollToId": "rt-game-form"}' class="rt-button-full-white js-form-button rt-button-md--is-block">Подключить
+                    </rt-button>
+                  </div>
+                </div>
+              </div>
+              <div class="rt-font-center  color-white rt-space-bottom6 rt-md-space-bottom">
+                <div class="rt-font-center rt-game-text-link-center md-d-none">
+                  <span class="game-item game-item-open-one">Wargaming</span> | <span class="game-item  game-item-open-two">MY.GAMES</span>
+                  | <span class="game-item  game-item-open-tree">4Game</span>
+                </div>
+                <div class="rt-go-to-banner" v-rt-scroll-to-on-click='{"scrollToId": "rt-game-banner"}'>
+                  <rt-game-arrow></rt-game-arrow>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rt-game-banner" id="rt-game-banner">
+      <div class="rt-game-banner__paginator">
+        <div class="rt-game-banner__paginator-item rt-game-banner__paginator-item--is-active">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 9" class="rt-game-banner__paginator-item__icon md-d-none">
+            <circle r="4" cx="4.5" cy="4.5" fill="transparent"></circle>
+          </svg>
+          <div class="rt-game-banner__paginator-item__span">Wargaming</div>
+        </div>
+        <div class="rt-game-banner__paginator-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 9" class="rt-game-banner__paginator-item__icon md-d-none">
+            <circle r="4" cx="4.5" cy="4.5" fill="transparent"></circle>
+          </svg>
+          <div class="rt-game-banner__paginator-item__span">Mygames</div>
+        </div>
+        <div class="rt-game-banner__paginator-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 9" class="rt-game-banner__paginator-item__icon md-d-none">
+            <circle r="4" cx="4.5" cy="4.5" fill="transparent"></circle>
+          </svg>
+          <div class="rt-game-banner__paginator-item__span">4Game</div>
+        </div>
+      </div>
+      <div class="rt-game-banner__content rt-md-space-bottom2">
+        <div class="rt-game-arrow-contaner rt-container td-d-none">
+          <div class="rt-game-arrow rt-game-arrow-prew">
+            <svg width="27px" height="52px" viewBox="0 0 27 52" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="328-LP_Igrovoy_UPD-2nd-page" transform="translate(-359.000000, -633.000000)">
+                  <g id="Group-19" transform="translate(257.000000, 242.000000)" fill-rule="nonzero" opacity="0.9" stroke="#FFFFFF"
+                     stroke-width="2">
+                    <g id="Group-6">
+                      <g id="Group-2" transform="translate(102.232300, 40.232300)">
+                        <g id="Rectangle-6-Copy" transform="translate(25.767700, 376.767700) rotate(90.000000) translate(-25.767700, -376.767700) translate(0.767700, 351.767700)">
+                          <polyline transform="translate(24.692618, 24.692618) rotate(45.000000) translate(-24.692618, -24.692618) "
+                                    points="42.1529352 7.2323003 42.1529352 42.1529352 7.2323003 42.1529352"></polyline>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+          <div class="rt-game-arrow rt-game-arrow-next td-d-none">
+            <svg width="27px" height="52px" viewBox="0 0 27 52" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="328-LP_Igrovoy_UPD-2nd-page" transform="translate(-1654.000000, -633.000000)" fill-rule="nonzero" stroke="#FFFFFF"
+                   stroke-width="2">
+                  <g id="Group-19" transform="translate(257.000000, 242.000000)">
+                    <g id="Group-6">
+                      <g id="Group-2" transform="translate(102.232300, 40.232300)">
+                        <polyline id="Rectangle-6-Copy" transform="translate(1295.460317, 376.460317) scale(-1, 1) rotate(135.000000) translate(-1295.460317, -376.460317) "
+                                  points="1312.92063 359 1312.92063 393.920635 1278 393.920635"></polyline>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="rt-game-banner__item rt-game-banner__item--is-active">
+          <div class="rt-game-banner-image" style="background-image: url('/sites/default/files/img/game/slide3.jpg')"></div>
+          <div class="rt-container">
+            <div class="rt-game-banner__icons rt-space-left05">
+              <div class="rt-game-banner__icons__item">
+                <img class="rt-game-banner__icons__item-img" src="/sites/default/files/img/game/logo-word-of-tanks.svg" alt="">
+              </div>
+              <div class="rt-game-banner__icons__item">
+                <img class="rt-game-banner__icons__item-img" src="/sites/default/files/img/game/logo-word-of-warship.svg" alt="">
+              </div>
+              <div class="rt-game-banner__icons__item">
+                <img class="rt-game-banner__icons__item-img" src="/sites/default/files/img/game/logo-world-of-warplanes.svg"
+                     alt="">
+              </div>
+            </div>
+            <rt-color-line-text :is-white-color="true" fill-color="orange" :hide-arrow="true">
+              <template slot="label">Мощный интернет<br>и&nbsp;игровые бонусы</template>
+            </rt-color-line-text>
+            <div class="rt-space-top2 rt-md-space-top-none rt-md-space-bottom05 relative rt-space-left05">
+              <rt-button :ga="{'type':'button'}" class="md-d-none rt-button-full-white" v-rt-scroll-to-on-click='{"scrollToId": "rt-game-form"}'>Подключить
+              </rt-button>
+              <div class="rt-space-left d-inline-block">
+                <a href="/wargaming">
+                  <rt-button :ga="{'type':'button'}" class="rt-button-white color-white rt-game-more-info">Подробнее&nbsp;<span class="d-none md-d-inline-block">&nbsp;об
+											игре</span>
+                    <svg width="9px" height="15px" viewBox="0 0 9 15" version="1.1" xmlns="http://www.w3.org/2000/svg" class="rt-game-more-info__icon">
+                      <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="328-LP_Igrovoy_UPD-2nd-page" transform="translate(-3143.000000, -621.000000)" fill-rule="nonzero"
+                           stroke="#FF4F12" stroke-width="2">
+                          <polyline id="Rectangle-6-Copy" transform="translate(3144.121320, 628.656854) rotate(315.000000) translate(-3144.121320, -628.656854) "
+                                    points="3148.62132 624.156854 3148.62132 633.156854 3139.62132 633.156854"></polyline>
+                        </g>
+                      </g>
+                    </svg>
+                  </rt-button>
+                </a>
+              </div>
+            </div>
+            <div class="row rt-md-space-top-none rt-space-top5 rt-td-space-top3-half">
+              <div class="rt-col-4 rt-font-center rt-col-td-2 rt-col-md-3 rt-md-space-left rt-md-space-vertical js-game-bonus md-d-flex">
+                <div class="rt-md-space-right">
+                  <img src="/sites/default/files/img/game/game-icon2.png" class="rt-game-banner-round-icon js-game-icon--weapon1"
+                       style="width: auto;" />
+                </div>
+                <div class="rt-font-md-left md-flex-center-start flex-column">
+                  <p class="js-game-text color-white rt-space-bottom rt-space-top rt-md-space-bottom-none rt-md-space-top-none">
+                    Экслюзивная техника <br> и слот в
+                    ангаре</p>
+                  <p class="js-game-text color-white07 rt-font-small-paragraph">Танк Т-44-100 (Р), крейсер <br>
+                    "Адмирал
+                    Макаров", самолет "ЯК-3Т"</p>
+                </div>
+              </div>
+              <div class="rt-col-4 rt-font-center rt-col-td-2 rt-col-md-3 rt-md-space-left rt-md-space-vertical js-game-bonus md-d-flex rt-md-space-top">
+                <div class="rt-md-space-right">
+                  <img src="/sites/default/files/img/game/game-icon11.png" height="100" class="rt-game-banner-round-icon js-game-icon-wf-k " /></div>
+                <div class="rt-font-md-left md-flex-center-start flex-column">
+                  <p class="js-game-text color-white rt-space-bottom rt-space-top rt-md-space-bottom-none rt-md-space-top-none">
+                    Полная
+                    боевая готовность</p>
+                  <p class="color-white07 rt-font-small-paragraph js-game-text">Прокачанный экипаж</p>
+                </div>
+              </div>
+              <div class="rt-col-4 rt-font-center rt-col-td-2 rt-col-md-3 rt-md-space-left rt-md-space-top js-game-bonus md-d-flex rt-md-space-top">
+                <div class="rt-md-space-right"><img src="/sites/default/files/img/game/WF-weapon%20Copy%202.png" alt="" height="100"
+                                                    class="rt-game-banner-round-icon" style="width: auto;" /></div>
+                <div class="rt-font-md-left md-flex-center-start flex-column">
+                  <p class="color-white rt-space-bottom rt-space-top js-game-text rt-md-space-top-none rt-md-space-bottom-none">
+                    Премиум
+                    аккаунт</p>
+                  <p class="color-white07 rt-font-small-paragraph js-game-text">Предоставляется на весь срок <br class="md-d-none">
+                    пользования опцией
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="rt-game-banner__item">
+          <div class="rt-game-banner-image" style="background-image: url('/sites/default/files/img/game/MyGames_1920x1080.png')"></div>
+          <div class="rt-container">
+            <div class="rt-game-banner__icons rt-space-left05">
+              <div class="rt-game-banner__icons__item">
+                <img class="rt-game-banner__icons__item-img" src="/sites/default/files/img/game/wf.svg">
+              </div>
+              <div class="rt-game-banner__icons__item">
+                <img class="rt-game-banner__icons__item-img" src="/sites/default/files/img/game/cf.svg">
+              </div>
+              <div class="rt-game-banner__icons__item">
+                <img class="rt-game-banner__icons__item-img" src="/sites/default/files/img/game/archeage.svg">
+              </div>
+            </div>
+            <rt-color-line-text :is-white-color="true" fill-color="orange" :hide-arrow="true">
+              <template slot="label">Мощный интернет<br>и&nbsp;игровые бонусы</template>
+            </rt-color-line-text>
+            <div class="rt-space-top2 rt-md-space-top-none rt-md-space-bottom05 relative rt-space-left05">
+              <rt-button :ga="{'type':'button'}" class="md-d-none rt-button-full-white" v-rt-scroll-to-on-click='{"scrollToId": "rt-game-form"}'>Подключить
+              </rt-button>
+              <div class="rt-space-left d-inline-block">
+                <a href="/my.games">
+                  <rt-button :ga="{'type':'button'}" class="rt-button-white color-white rt-game-more-info">Подробнее&nbsp;<span class="d-none md-d-inline-block">&nbsp;об
+											игре</span>
+                    <svg width="9px" height="15px" viewBox="0 0 9 15" version="1.1" xmlns="http://www.w3.org/2000/svg" class="rt-game-more-info__icon">
+                      <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="328-LP_Igrovoy_UPD-2nd-page" transform="translate(-3143.000000, -621.000000)" fill-rule="nonzero"
+                           stroke="#FF4F12" stroke-width="2">
+                          <polyline id="Rectangle-6-Copy" transform="translate(3144.121320, 628.656854) rotate(315.000000) translate(-3144.121320, -628.656854) "
+                                    points="3148.62132 624.156854 3148.62132 633.156854 3139.62132 633.156854"></polyline>
+                        </g>
+                      </g>
+                    </svg>
+                  </rt-button>
+                </a>
+              </div>
+            </div>
+            <div class="row rt-md-space-top-none rt-space-top5 rt-td-space-top3-half">
+              <div class="rt-col-4 rt-font-center rt-col-td-2 rt-col-md-3 rt-md-space-left rt-md-space-vertical js-game-bonus md-d-flex">
+                <div class="rt-md-space-right">
+                  <img src="/sites/default/files/img/game/icon_1_bonus.png" class="rt-game-banner-round-icon js-game-icon--weapon1"
+                       style="width: auto;" />
+                </div>
+                <div class="rt-font-md-left md-flex-center-start flex-column">
+                  <p class="js-game-text color-white rt-space-bottom rt-space-top rt-md-space-bottom-none rt-md-space-top-none">Бонусы
+                    за подключение тарифа и игровой стаж</p>
+                  <p class="js-game-text color-white07 rt-font-small-paragraph">Чем дольше подключен к опции, тем круче
+                    бонусы</p>
+                </div>
+              </div>
+              <div class="rt-col-4 rt-font-center rt-col-td-2 rt-col-md-3 rt-md-space-left rt-md-space-vertical js-game-bonus md-d-flex rt-md-space-top">
+                <div class="rt-md-space-right">
+                  <img src="/sites/default/files/img/game/icon_2_shooter.png" height="100" class="rt-game-banner-round-icon js-game-icon-wf-k " /></div>
+                <div class="rt-font-md-left md-flex-center-start flex-column">
+                  <p class="js-game-text color-white rt-space-bottom rt-space-top rt-md-space-bottom-none rt-md-space-top-none">Игровые
+                    предметы навсегда</p>
+                  <p class="js-game-text color-white07 rt-font-small-paragraph">Копи дни РТК и обменивай их на
+                    постоянное оружие</p>
+                </div>
+              </div>
+              <div class="rt-col-4 rt-font-center rt-col-td-2 rt-col-md-3 rt-md-space-left rt-md-space-top js-game-bonus md-d-flex rt-md-space-top">
+                <div class="rt-md-space-right"><img src="/sites/default/files/img/game/icon_3_mmo.png" height="100" class="rt-game-banner-round-icon"
+                                                    style="width: auto;" /></div>
+                <div class="rt-font-md-left md-flex-center-start flex-column">
+                  <p class="color-white rt-space-bottom rt-space-top js-game-text rt-md-space-top-none rt-md-space-bottom-none">Оружие
+                    на выбор</p>
+                  <p class="color-white07 rt-font-small-paragraph js-game-text">Пользуйся любой из 4 крутых игровых
+                    пушек, пока подключена игровая опция</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rt-game-banner__item">
+          <div class="rt-game-banner-image" style="background-image: url('/sites/default/files/img/game/slide2.jpg')"></div>
+          <div class="rt-container">
+            <div class="rt-game-banner__icons rt-space-left05">
+              <div class="rt-game-banner__icons__item">
+                <img class="rt-game-banner__icons__item-img" src="/sites/default/files/img/game/L2_black.svg">
+              </div>
+              <div class="rt-game-banner__icons__item">
+                <img class="rt-game-banner__icons__item-img" src="/sites/default/files/img/game/PB_black.svg">
+              </div>
+              <div class="rt-game-banner__icons__item">
+                <img class="rt-game-banner__icons__item-img" src="/sites/default/files/img/game/Aion_black.svg">
+              </div>
+              <div class="rt-game-banner__icons__item">
+                <img class="rt-game-banner__icons__item-img" src="/sites/default/files/img/game/BNS_black.svg">
+              </div>
+            </div>
+            <rt-color-line-text :is-white-color="true" fill-color="orange" :hide-arrow="true">
+              <template slot="label">Мощный интернет<br>и&nbsp;игровые бонусы</template>
+            </rt-color-line-text>
+            <div class="rt-space-top2 rt-md-space-top-none rt-md-space-bottom05 relative rt-space-left05">
+              <rt-button :ga="{'type':'button'}" class="md-d-none rt-button-full-white" v-rt-scroll-to-on-click='{"scrollToId": "rt-game-form"}'>Подключить
+              </rt-button>
+              <div class="rt-space-left d-inline-block">
+                <a href="/4game">
+                  <rt-button :ga="{'type':'button'}" class="rt-button-white color-white rt-game-more-info">Подробнее&nbsp;<span class="d-none md-d-inline-block">&nbsp;об
+											игре</span>
+                    <svg width="9px" height="15px" viewBox="0 0 9 15" version="1.1" xmlns="http://www.w3.org/2000/svg" class="rt-game-more-info__icon">
+                      <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="328-LP_Igrovoy_UPD-2nd-page" transform="translate(-3143.000000, -621.000000)" fill-rule="nonzero"
+                           stroke="#FF4F12" stroke-width="2">
+                          <polyline id="Rectangle-6-Copy" transform="translate(3144.121320, 628.656854) rotate(315.000000) translate(-3144.121320, -628.656854) "
+                                    points="3148.62132 624.156854 3148.62132 633.156854 3139.62132 633.156854"></polyline>
+                        </g>
+                      </g>
+                    </svg>
+                  </rt-button>
+                </a>
+              </div>
+            </div>
+            <div class="row rt-md-space-top-none rt-space-top5 rt-td-space-top3-half">
+              <div class="rt-col-4 rt-font-center rt-col-td-2 rt-col-md-3 rt-md-space-left rt-md-space-vertical js-game-bonus md-d-flex">
+                <div class="rt-md-space-right">
+                  <img src="/sites/default/files/img/game/4G-bonus.png" class="rt-game-banner-round-icon js-game-icon--weapon1"
+                       style="width: auto;" />
+                </div>
+                <div class="rt-font-md-left md-flex-center-start flex-column">
+                  <p class="js-game-text color-white rt-space-bottom rt-space-top rt-md-space-bottom-none rt-md-space-top-none">Бонусы
+                    за стаж</p>
+                  <p class="color-white07 rt-font-small-paragraph js-game-text">Чем дольше подключен к опции, тем круче бонусы в
+                    каждой из игр</p>
+                </div>
+              </div>
+              <div class="rt-col-4 rt-font-center rt-col-td-2 rt-col-md-3 rt-md-space-left rt-md-space-vertical js-game-bonus md-d-flex rt-md-space-top">
+                <div class="rt-md-space-right">
+                  <img src="/sites/default/files/img/game/4G-gift.png" height="100" class="rt-game-banner-round-icon js-game-icon-wf-k " /></div>
+                <div class="rt-font-md-left md-flex-center-start flex-column">
+                  <p class="js-game-text color-white rt-space-bottom rt-space-top rt-md-space-bottom-none rt-md-space-top-none">Подарки
+                    при подключении</p>
+                  <p class="color-white07 rt-font-small-paragraph js-game-text">Для погружения в игровой мир</p>
+                </div>
+              </div>
+              <div class="rt-col-4 rt-font-center rt-col-td-2 rt-col-md-3 rt-md-space-left rt-md-space-top js-game-bonus md-d-flex rt-md-space-top">
+                <div class="rt-md-space-right"><img src="/sites/default/files/img/game/4G-baff.png" height="100" class="rt-game-banner-round-icon"
+                                                    style="width: auto;" /></div>
+                <div class="rt-font-md-left md-flex-center-start flex-column">
+                  <p class="color-white rt-space-bottom rt-space-top js-game-text rt-md-space-top-none rt-md-space-bottom-none">Ежедневные
+                    баффы</p>
+                  <p class="color-white07 rt-font-small-paragraph js-game-text">Для быстрой прокачки</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div v-rt-scroll-to-on-click='{"scrollToId": "rt-game-form"}'>
+          <rt-game-arrow></rt-game-arrow>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="rt-fill-viewport rt-md-viewport-height-reset js-screen relative color-block--black color-white rt-dark-theme rt-space-bottom5 rt-md-space-bottom-none zayavka">
+      <div class="rt-container">
+        <div class="rt-col-12">
+          <div class="row rt-space-top4 flex-row-reverse rt-td-space-top">
+            <div class="rt-col-6 rt-col-md-3 md-d-none  rt-col-td-6 rt-td-space-left05">
+              <p class="rt-font-h2 rt-space-bottom rt-space-bottom2 d-none td-d-block md-d-none">Подробнее о тарифе</p>
+              <div class="row rt-space-top4">
+                <div class="rt-col-4 rt-font-center rt-col-md-3 rt-td-font-left">
+                  <img src="/sites/default/files/img/game/icon-inet.svg" />
+                  <p class="rt-space-top color-white">Высокая скорость</p>
+                  <p class="rt-space-top05 color-white05 rt-font-label">Интернет <br /> для игр</p>
+                </div>
+                <div class="rt-col-4 rt-font-center rt-col-md-3 rt-td-font-left">
+                  <img src="/sites/default/files/img/game/icon-benefit.svg" />
+                  <p class="rt-space-top color-white">Преимущества</p>
+                  <p class="rt-space-top05 color-white05 rt-font-label">Бонусы и игровые <br /> преимущества </p>
+                </div>
+                <div class="rt-col-4 rt-font-center rt-col-md-3 rt-td-font-left">
+                  <img src="/sites/default/files/img/game/icon-speed.svg" />
+                  <p class="rt-space-top color-white">Любимые игры</p>
+                  <p class="rt-space-top05 color-white05 rt-font-label">Возможность менять игру <br /> раз в 24
+                    часа
+                  </p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="rt-space-bottom6 rt-space-left15 rt-td-space-left-none rt-space-top2 rt-col-md-3 rt-td-space-bottom3">
+                  <div class="d-flex">
+                    <div class="rt-orange-breaker-item">
+                      <div class="rt-price rt-price-without-space color-white d-flex">
+                        <epc-price is-value-only class="color-white md-d-inline-block" :data="{ lcs: 'active', minPrice: false, offerIds: ['403788683790'] }"></epc-price>
+                        <epc-price class="color-white md-d-inline-block" :data="{ lcs: 'active', minPrice: false, offerIds: ['403794182990'] }"></epc-price>
+                      </div>
+                    </div>
+                    <div class="rt-orange-breaker-item">
+                      <div class="rt-price rt-price-without-space color-white">
+                        <div class="rt-price__option-value color-white">
+                          <epc-data :data="{ id: 403794182990, lcs: 'active' }">
+                            <epc-options :data="{ comp: 'Main_Internet_service', prop: 'internetSpeedValue', minInternetSpeed: false }"></epc-options>
+                          </epc-data>
+                        </div>
+                        <div class="rt-price__info">
+                          <div class="rt-price__info-item">Мбит</div>
+                          <div class="rt-price__info-item">сек.</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="rt-font-paragraph rt-space-top05">первый месяц по сниженной цене</p>
+                </div>
+              </div>
+            </div>
+            <div class="rt-col-1 md-d-none"></div>
+            <div class="rt-col-5 rt-col-md-3 rt-col-td-6 rt-td-space-left05 rt-md-space-left rt-md-space-right05 js-form " id="rt-game-form">
+              <order-form lcs="active" class="rt-md-reverse-left-half" popup-main-url="http://www.rt.ru/" scope="form-3"
+                          :offer-id="[{offerIds: [403794182990]}]" :prevent-send="[{ regionIds: mrfCenter, preventSend: true }]">
+                <p class="rt-font-h2 rt-font-bold rt-space-bottom" id="zayavka">Заявка на подключение</p>
+                <rt-checkbox-tabs>
+                  <rt-template slot="label">
+                    <span>У меня уже есть Домашний интернет от Ростелекома</span>
+                  </rt-template>
+                  <rt-template slot="content">
+                    <div class="rt-space-top2">
+                      <form data-vv-scope="form-3" @submit.prevent>
+                        <div class="row">
+                          <div class="rt-col-8 rt-col-md-3">
+                            <full-name class="text-field--purple"></full-name>
+                          </div>
+                        </div>
+                        <div class="row rt-space-top">
+                          <div class="rt-col-8 rt-col-md-3">
+                            <client-phone class="text-field--purple"></client-phone>
+                          </div>
+                        </div>
+                        <div class="row rt-space-top">
+                          <div class="rt-col-8 rt-col-md-3">
+                            <email class="text-field--purple"></email>
+                          </div>
+                        </div>
+                        <p class="rt-font-paragraph rt-space-top2">Адрес подключения</p>
+                        <div class="row rt-space-top">
+                          <div class="rt-col-8 rt-col-md-3">
+                            <street class="text-field--purple"></street>
+                          </div>
+                        </div>
+                        <div class="row rt-space-top">
+                          <div class="rt-col-4 rt-col-md-persent-5" style="min-width:80px">
+                            <house class="text-field--purple"></house>
+                          </div>
+                          <div class="rt-col-4 rt-col-md-persent-5">
+                            <apartment class="text-field--purple"></apartment>
+                          </div>
+                        </div>
+                        <div class="rt-space-top2">
+                          <submit-button class="rt-button rt-button-full-white rt-col-md-3 rt-col-4 rt-col-td-4">
+                            Подключить
+                          </submit-button>
+                        </div>
+                        <div class="row rt-space-top">
+                          <div class="rt-col-8 rt-col-md-3">
+                            <div class="rt-space-top">
+                              <agree></agree>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </rt-template>
+                  <rt-template slot="content">
+                    <div class="rt-space-top2">
+                      <p class="rt-font-small-paragraph">Подключите тариф и активируйте игровую опцию в Личном
+                        кабинете</p>
+                      <div class="rt-space-top2">
+                        <a href="http://lk.rt.ru/" target="_blank">
+                          <rt-button :ga="{'type':'button'}" class="rt-button-full-white">Войти</rt-button>
+                        </a>
+                      </div>
+                    </div>
+                  </rt-template>
+                </rt-checkbox-tabs>
+              </order-form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="https://market.rt.ru?utm_source=gg&utm_medium=lp" target="_blank" class="bottom-banner">
+      <rt-banner :without-empty-column="true" :fixed-image='true' :is-fullscreen-image="true" content-min-height="500px"
+                 content-height="500px">
+        <rt-banner-item background-image="/sites/default/files/img/game/BG_market.jpg" content-min-height="500px"
+                        content-height="500px">
+          <img src="/sites/default/files/img/logo/logo_market.svg">
+          <div class="rt-l-game-main-text rt-space-top rt-md-space-left05">
+            <rt-color-line-text :is-white-color="true" fill-color="orange" :hide-arrow="true">
+              <template slot="label">Покупай игры на специальных условиях</template>
+              <template slot="content">с тарифом Игровой</template>
+            </rt-color-line-text>
+          </div>
+        </rt-banner-item>
+      </rt-banner>
+    </a>
+    <div class="rt-container">
+      <div class="rt-col-12">
+        <p class="color-white05 rt-font-label rt-space-bottom2 rt-space-top2">«Игровой»&nbsp;-
+          Тариф услуги «Домашний
+          интернет» с
+          опциями «Игры
+          Wargaming»,
+          «Фогейм» и «MY.GAMES» (Опции). Предоставление и состав Опций определяют Партнеры – WARGAMING, Innova
+          S.&nbsp;A.&nbsp;R.&nbsp;L и OOO «Мейл.ру». Стоимость Опций включена в Тариф. Подробности gg.rt.ru </p>
+      </div>
+    </div>
+    <div class="rt-main-footer">
+      <div class="rt-container">
+        <div class="rt-col-12">
+          <div class="rt-main-footer-container">
+            <div class="rt-main-footer-copyright">
+              <p class="rt-font-control color-white05">© 2019 ПАО «Ростелеком». 18+.</p>
+            </div>
+            <div class="rt-main-footer-social">
+              <div class="d-flex flex-center-center md-flex-start-center">
+                <div class="rt-space-left-half rt-md-space-left">
+                  <a href="https://twitter.com/#!/Rostelecom_News" target="_blank" class="rtk-footer__social-icon">
+                    <img src="https://www.rt.ru/sites/default/files/img/icon/footer-twitter.svg" onmouseover="this.src='https://www.rt.ru/sites/default/files/img/icon/footer-color-twitter.svg';"
+                         onmouseout="this.src='https://www.rt.ru/sites/default/files/img/icon/footer-twitter.svg';">
+                  </a>
+                </div>
+                <div class="rt-space-left-half rt-md-space-left">
+                  <a href="https://vk.com/rostelecom" target="_blank" class="rtk-footer__social-icon">
+                    <img src="https://www.rt.ru/sites/default/files/img/icon/footer-vk-2019.svg" onmouseover="this.src='https://www.rt.ru/sites/default/files/img/icon/footer-color-vk-2019.svg';"
+                         onmouseout="this.src='https://www.rt.ru/sites/default/files/img/icon/footer-vk-2019.svg';">
+                  </a>
+                </div>
+                <div class="rt-space-left-half rt-md-space-left">
+                  <a href="https://www.facebook.com/Rostelecom.Official" target="_blank" class="rtk-footer__social-icon">
+                    <img src="https://www.rt.ru/sites/default/files/img/icon/footer-facebook.svg" onmouseover="this.src='https://www.rt.ru/sites/default/files/img/icon/footer-color-facebook.svg';"
+                         onmouseout="this.src='https://www.rt.ru/sites/default/files/img/icon/footer-facebook.svg';">
+                  </a>
+                </div>
+                <div class="rt-space-left-half rt-md-space-left">
+                  <a href="https://ok.ru/rostelecom.official" target="_blank" class="rtk-footer__social-icon">
+                    <img src="https://www.rt.ru/sites/default/files/img/icon/footer-ok.svg" onmouseover="this.src='https://www.rt.ru/sites/default/files/img/icon/footer-color-ok.svg';"
+                         onmouseout="this.src='https://www.rt.ru/sites/default/files/img/icon/footer-ok.svg';">
+                  </a>
+                </div>
+                <div class="rt-space-left-half rt-md-space-left">
+                  <a href="https://www.youtube.com/user/rostelec" target="_blank" class="rtk-footer__social-icon">
+                    <img src="https://www.rt.ru/sites/default/files/img/icon/footer-youtube.svg" onmouseover="this.src='https://www.rt.ru/sites/default/files/img/icon/footer-color-youtube.svg';"
+                         onmouseout="this.src='https://www.rt.ru/sites/default/files/img/icon/footer-youtube.svg';">
+                  </a>
+                </div>
+                <div class="rt-space-left-half rt-md-space-left">
+                  <a href="https://www.instagram.com/rostelecom.official" target="_blank" class="rtk-footer__social-icon">
+                    <img src="https://www.rt.ru/sites/default/files/img/icon/footer-instagram.svg" onmouseover="this.src='https://www.rt.ru/sites/default/files/img/icon/footer-color-instagram.svg';"
+                         onmouseout="this.src='https://www.rt.ru/sites/default/files/img/icon/footer-instagram.svg';">
+                  </a>
+                </div>
+                <div class="rt-space-left-half rt-md-space-left">
+                  <a href="https://www.flickr.com/photos/rostelecom_photostream" target="_blank" class="rtk-footer__social-icon">
+                    <img src="https://www.rt.ru/sites/default/files/img/icon/footer-flikr.svg" onmouseover="this.src='https://www.rt.ru/sites/default/files/img/icon/footer-color-flikr.svg';"
+                         onmouseout="this.src='https://www.rt.ru/sites/default/files/img/icon/footer-flikr.svg';">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="rt-main-footer-phone">
+              <p class="rt-font-phone  color-white05">8 800 100 0 800</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<noindex>
+  <script>
+    setTimeout(function () {
+      var $$ = document.querySelectorAll.bind(document);
+      var $ = document.querySelector.bind(document);
+      $(".game-item-open-one").addEventListener("click", function () {
+        $$(".rt-game-banner__paginator-item")[0].click();
+        $(".rt-go-to-banner").click();
+      });
+      $(".game-item-open-two").addEventListener("click", function () {
+        $$(".rt-game-banner__paginator-item")[1].click();
+        $(".rt-go-to-banner").click();
+      });
+      $(".game-item-open-tree").addEventListener("click", function () {
+        $$(".rt-game-banner__paginator-item")[2].click();
+        $(".rt-go-to-banner").click();
+      });
+      var activeSlideIndex = 0;
+      var hasClick = false;
+      var slideCount = $$(".rt-game-banner__item").length;
+      var sleepTime = 5000;
+      var timer = function () {
+        return setTimeout(function () {
+          if (!hasClick) {
+            nextSlide();
+            localTimer = timer();
+          }
+        }, sleepTime);
+      };
+      var localTimer = timer();
+      var clearTimer = function () {
+        clearTimeout(localTimer);
+        localTimer = timer();
+      };
+      var updatePaginator = function () {
+        $(".rt-game-banner__paginator-item--is-active").classList.remove("rt-game-banner__paginator-item--is-active");
+        $$(".rt-game-banner__paginator-item")[activeSlideIndex].classList.add("rt-game-banner__paginator-item--is-active");
+      };
+
+      var prewSlide = function () {
+        $(".rt-game-banner__item--is-active").classList.remove("rt-game-banner__item--is-active");
+        activeSlideIndex -= 1;
+        if (activeSlideIndex < 0) {
+          activeSlideIndex = slideCount - 1;
+        }
+        $$(".rt-game-banner__item")[activeSlideIndex].classList.add("rt-game-banner__item--is-active");
+        updatePaginator();
+        clearTimer();
+      };
+
+      var nextSlide = function () {
+        $(".rt-game-banner__item--is-active").classList.remove("rt-game-banner__item--is-active");
+        activeSlideIndex += 1;
+        activeSlideIndex = activeSlideIndex % slideCount;
+        $$(".rt-game-banner__item")[activeSlideIndex].classList.add("rt-game-banner__item--is-active");
+        updatePaginator();
+        clearTimer();
+      };
+
+      $(".rt-game-arrow-prew").addEventListener("click", function () {
+        hasClick = true;
+        prewSlide()
+      });
+      $(".rt-game-arrow-next").addEventListener("click", function () {
+        hasClick = true;
+        nextSlide()
+      });
+      $$(".rt-game-banner__paginator-item").forEach(function (item, index) {
+        item.addEventListener("click", function () {
+          if (activeSlideIndex != index) {
+            hasClick = true;
+            $(".rt-game-banner__item--is-active").classList.remove("rt-game-banner__item--is-active");
+            activeSlideIndex = index;
+            $$(".rt-game-banner__item")[activeSlideIndex].classList.add("rt-game-banner__item--is-active");
+            clearTimer();
+            updatePaginator();
+          }
+        });
+      });
+    }, 1000);
+
+    var headFix = document.createElement("DIV");
+    var deviceType = 1;
+    headFix.setAttribute("id", "mainHeader");
+    if (document.getElementById("header")) {
+      document.getElementById("header").appendChild(headFix);
+      window.addEventListener("load", initScripts);
+      if (window.innerWidth > 1024) {
+        deviceType = 1;
+      } else {
+        deviceType = 2;
+      }
+    }
+    setTimeout(function () {
+      var stopAnim = false;
+      document.querySelectorAll(".promo-shelf__list-arrow").forEach(function (item) {
+        item.addEventListener("click", function () {
+          if (!stopAnim) {
+            stopAnim = true;
+            var list = document.querySelector(".promo-shelf__list");
+            var listItems = document.querySelectorAll(".promo-shelf__list .rt-col-2");
+            var first = listItems[0];
+            var last = listItems[listItems.length - 1];
+            var innerWidth = window.innerWidth;
+            if (item.classList.contains("promo-shelf__list-arrow--left")) {
+
+              if (innerWidth > 1024) {
+                last.style.marginLeft = "-12.5%";
+              } else if (innerWidth > 768) {
+                last.style.marginLeft = "-20%";
+              } else {
+                last.style.marginLeft = "-47vw";
+              }
+
+              list.prepend(last);
+              first.style.marginLeft = "0";
+              setTimeout(function () {
+                last.removeAttribute("style");
+                setTimeout(function () {
+                  stopAnim = false;
+                }, 10);
+                first = listItems[0];
+                last = listItems[listItems.length - 1];
+              }, 500);
+            } else {
+              if (innerWidth > 1024) {
+                first.style.marginLeft = "-12.5%";
+              } else if (innerWidth > 768) {
+                first.style.marginLeft = "-20%";
+              } else {
+                first.style.marginLeft = "-47vw";
+              }
+              setTimeout(function () {
+                list.appendChild(first);
+                first.removeAttribute("style");
+                first = listItems[0];
+                last = listItems[listItems.length - 1];
+                setTimeout(function () {
+                  stopAnim = false;
+                }, 10);
+              }, 500);
+            }
+          }
+        });
+      });
+    }, 2000);
+    window.addEventListener("resize",
+      function () {
+        if (window.innerWidth > 1024) {
+          deviceType = 1;
+        } else {
+          deviceType = 2;
+        }
+      });
+    var timer;
+    var index = 0;
+
+    function initScripts() {
+      document.querySelectorAll(".game-item").forEach(function (el, index) {
+        el.addEventListener("click", function () {
+          var paginatorList = document.querySelectorAll(".circle-switcher__item");
+          paginatorList[index].click();
+          window.scrollTo({
+            top: document.querySelector(".rt-banner").getBoundingClientRect().top + pageYOffset,
+            left: 0,
+            behavior: "smooth"
+          });
+        });
+      });
+      document.querySelectorAll(".js-form-button").forEach(function (item) {
+        item.addEventListener("click", function () {
+          var bodyRect = document.body.getBoundingClientRect();
+          window.scroll({
+            top: document.querySelector(".js-form").getBoundingClientRect().y - 200 - bodyRect.top,
+            left: 0,
+            behavior: "smooth"
+          });
+        });
+      });
+      if (document.querySelector(".mobile-checkbox input")) {
+        document.querySelector(".mobile-checkbox input").addEventListener("change", function () {
+          const icon = document.querySelector(".mobile-icon");
+          if (document.querySelector(".mobile-checkbox input").checked) {
+            icon.classList.remove("rt-icon--not-active");
+          } else {
+            icon.classList.add("rt-icon--not-active");
+          }
+        });
+      }
+      document.addEventListener("keydown", function (event) {
+        var activeScreenIndex = 2;
+        var bodyRect = document.body.getBoundingClientRect();
+        document.querySelectorAll(".js-screen").forEach(function (item, index) {
+          var clientRect = item.getBoundingClientRect();
+          if (clientRect.top <= 0 && window.innerHeight > Math.abs(clientRect.top)) {
+            activeScreenIndex = index;
+            return false;
+          }
+        });
+
+        switch (event.keyCode) {
+          case 38:
+            var nextIndex = activeScreenIndex - 1;
+            if (nextIndex >= 0) {
+              setTimeout(function () {
+                window.scroll({
+                  top: document.querySelectorAll(".js-screen")[nextIndex].getBoundingClientRect().y - bodyRect.top,
+                  left: 0,
+                  behavior: "smooth"
+                });
+              }, 10);
+            }
+            break;
+          case 40:
+            var nextIndex = activeScreenIndex + 1;
+            if (nextIndex < 3) {
+              var top = document.querySelectorAll(".js-screen")[nextIndex].getBoundingClientRect().y - bodyRect.top;
+              setTimeout(function () {
+                window.scroll({
+                  top: top,
+                  left: 0,
+                  behavior: "smooth"
+                });
+              }, 10);
+            }
+            break;
+          case 37:
+            if (activeScreenIndex === 1) {
+              setTimeout(function () {
+                document.querySelector(".banner__arrow-left").dispatchEvent(new Event("click"));
+              }, 10);
+            }
+            break;
+          case 39:
+            if (activeScreenIndex === 1) {
+              setTimeout(function () {
+                document.querySelector(".banner__arrow-right").dispatchEvent(new Event("click"));
+              }, 10);
+            }
+            break;
+        }
+      });
+
+      document.querySelectorAll(".rt-l-bottom-scroll-arrow").forEach(function (item, index) {
+        item.addEventListener("click", function () {
+          var nextIndex = index + 1;
+          var bodyRect = document.body.getBoundingClientRect();
+          window.scroll({
+            top: document.querySelectorAll(".js-screen")[nextIndex].getBoundingClientRect().y - bodyRect.top,
+            left: 0,
+            behavior: "smooth"
+          });
+        });
+      });
+
+      window.addEventListener("scroll", function () {
+        if (document.querySelector(".rt-banner").getBoundingClientRect().top < 0 && document.querySelector(".rt-banner").getBoundingClientRect().bottom > (+getComputedStyle(document.querySelector(".circle-switcher--top")).height.slice(0, -2)) && window.innerWidth <= 767) {
+          document.querySelector(".circle-switcher--top").style.position = "fixed";
+        } else {
+          document.querySelector(".circle-switcher--top").style.position = "absolute";
+        }
+      });
+    }
+  </script>
+</noindex>
