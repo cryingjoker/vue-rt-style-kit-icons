@@ -1,6 +1,6 @@
 {
   "name": "vue-rt-style-kit-icons",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "",
   "main": "lib/vue-rt-style-kit-icons.js",
   "scripts": {
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cryingjoker/vue-rt-style-kit-icons.git"
+    "url": "git+https://github.com/vue-rt-style/vue-rt-style-kit-icons.git"
   },
   "keywords": [],
   "author": "Alex Nikolaev / cryingjoker",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cryingjoker/vue-rt-style-kit-icons/issues"
+    "url": "https://github.com/vue-rt-style/vue-rt-style-kit-icons/issues"
   },
-  "homepage": "https://github.com/cryingjoker/vue-rt-style-kit-icons",
+  "homepage": "https://github.com/vue-rt-style/vue-rt-style-kit-icons",
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
     "@babel/runtime": "^7.5.5",

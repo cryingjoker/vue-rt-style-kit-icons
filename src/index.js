@@ -4,29 +4,30 @@ import Project from "../package.json";
 import * as svgicon from 'vue-svgicon';
 import styles from "./css/vue-rt-style-kit-icons.styl";
 import {
-  Logo,
-  LogoCoBranding,
-  Icon,
-  ValidationIcon,
+    Logo,
+    LogoCoBranding,
+    Icon,
+    ValidationIcon,
 } from "./components";
 
 import 'element-closest-polyfill';
 import 'nodelist-foreach-polyfill';
 import 'element-remove';
+
 const VueRtStyle = {
-  install(Vue, config) {
-    if (!Vue.RtStyleKitIcons) {
+    install(Vue, config) {
+        if (!Vue.RtStyleKitIcons) {
 
-      Vue.use(svgicon);
-      Vue.component(Icon.name, Icon);
-      Vue.component(Logo.name,Logo)
-      Vue.component(LogoCoBranding.name,LogoCoBranding)
-      Vue.component(ValidationIcon.name, ValidationIcon.component);
+            Vue.use(svgicon);
+            Vue.component(Icon.name, Icon);
+            Vue.component(Logo.name, Logo)
+            Vue.component(LogoCoBranding.name, LogoCoBranding)
+            Vue.component(ValidationIcon.name, ValidationIcon.component);
 
-      Vue.RtStyleKitIcons = true;
-      Vue.config.test = true;
+            Vue.RtStyleKitIcons = true;
+            Vue.config.test = true;
+        }
     }
-  }
 };
 
 /**
@@ -37,9 +38,9 @@ const VueRtStyle = {
 const settingsKey = Global.globalSettingsKey;
 const version = Project.version;
 if (settingsKey) {
-  if (!window[settingsKey]) window[settingsKey] = {}
-  if (!window[settingsKey].segment) window[settingsKey].segment = Global.defaultSegment
-  window[settingsKey].version = version;
+    if (!window[settingsKey]) window[settingsKey] = {}
+    if (!window[settingsKey].segment) window[settingsKey].segment = Global.defaultSegment
+    window[settingsKey].version = version;
 }
 
 // @Deprecated
@@ -47,3 +48,9 @@ window.RTK_STYLE_KIT_ICON_VER = version;
 VueRtStyle.version = version;
 
 export default VueRtStyle;
+export {
+    Logo,
+    LogoCoBranding,
+    Icon,
+    ValidationIcon
+}
