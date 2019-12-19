@@ -1,7 +1,8 @@
 import Vue from "vue";
 import Global from "./variables.json";
-import Project from "../package.json";
+import Project from "@projectIcons";
 import * as svgicon from 'vue-svgicon';
+
 import styles from "./css/vue-rt-style-kit-icons.styl";
 import {
     Logo,

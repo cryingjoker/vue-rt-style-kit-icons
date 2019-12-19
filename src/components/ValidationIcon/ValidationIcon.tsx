@@ -3,7 +3,7 @@ import { Component, Prop } from "vue-property-decorator";
 import variables from "../../variables.json";
 
 @Component
-class Ussd extends Vue {
+class ValidationIcon extends Vue {
   @Prop({ default: "" }) status: String;
   @Prop({ default: "" }) hintText: String;
   @Prop({ default: "right" }) hintOrient: String;
@@ -91,7 +91,7 @@ class Ussd extends Vue {
   }
 }
 export default {
-  component: Ussd,
+  component: ValidationIcon,
   name: "RtValidationIcon"
 };
 

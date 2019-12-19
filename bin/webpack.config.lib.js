@@ -9,6 +9,7 @@ const OptimizeCSSAssetsPlugin = require(`optimize-css-assets-webpack-plugin`);
 const env = process.env.NODE_ENV;
 const local_dirname = path.join(__dirname,'..');
 
+
 const config = {
   entry: {
     'vue-rt-style-kit-icons':[path.join(local_dirname, `src`,  `index.js`)],
@@ -21,6 +22,12 @@ const config = {
     library: 'vue-rt-style-kit-icons',
     libraryTarget: 'umd',
     umdNamedDefine: true
+  },
+  resolve: {
+    extensions: ['.js', '.vue', '.json'],
+    alias: {
+      '@projectIcons': path.join(local_dirname,'package.json'),
+    }
   },
   module: {
     rules: [
