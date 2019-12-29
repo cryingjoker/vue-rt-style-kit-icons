@@ -185,7 +185,7 @@ export default {
     getPath() {
       var name = this.iconName
       var base_path = window.RTK_STYLE && window.RTK_STYLE.base_path ? window.RTK_STYLE.base_path : '';
-      var icons_path = window.RTK_STYLE && window.RTK_STYLE.icons_path ? window.RTK_STYLE.icons_path : 'https://cryingjoker.github.io/vue-stylekit/static/icons/';
+      var icons_path = window.RTK_STYLE && window.RTK_STYLE.icons_path ? window.RTK_STYLE.icons_path : 'https://cryingjoker.github.io/vue-rt-style-kit-pages/static/icons/';
       if (name) {
         window[arrKey][name] = {}
         return axios.request({
