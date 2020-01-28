@@ -3,49 +3,75 @@
     :class="iconClassName"
     :style="iconStyle"
   >
-    <svgicon
-      v-if="iconPath"
-      ref="iconSvg"
-      :name="iconName"
-      width="100%"
-      height="100%"
-      :original="true"
-    />
-
     <div
       v-if="caption && isSpeedIcon"
       class="icon-speed__spinned-arrow"
+      style="position: absolute; left: 0; top: 0;"
     >
+      <svg
+        version="1.1"
+        viewBox="0 0 52 52"
+      >
+        <g fill="none" stroke="#000" stroke-width="2">
+          <path pid="0" d="M46.2 24.9c.6 10.9-7.7 20.3-18.7 20.9h-.1c-10.9 1-20.6-7.1-21.5-18S13 7.2 23.9 6.2c.4 0 .8-.1 1.2-.1 4-.2 7.9.7 11.3 2.7 2.9 1.7 5.4 4.2 7.1 7.1 1.5 2.8 2.5 5.9 2.7 9z" stroke-linejoin="round" stroke-dasharray="2.9739,2.9739" class="__web-inspector-hide-shortcut__"></path>
+          <path pid="1" d="M37.4 9.5c6.1 4 9.4 11.1 8.6 18.4" stroke-linecap="round" stroke-linejoin="round" class="__web-inspector-hide-shortcut__"></path>
+          <ellipse pid="2" cx="25.9" cy="26" rx="12.8" ry="12.7" stroke-miterlimit="10" class=""></ellipse>
+          <ellipse pid="3" cx="25.9" cy="26" rx="7" ry="12.7" stroke-miterlimit="10" class=""></ellipse>
+          <path pid="4" stroke-miterlimit="10" d="M25.9 13.2v25.5M13.2 26.2h25.5M15.1 19.6h21.5M15.5 32.7h21.1"></path>
+        </g>
+        <path pid="5" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M50.1 23.5L46 27.9l-4.4-4.2"></path>
+      </svg>
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         class="spinned-circle"
-        transform-origin="center"
-        :style="{ padding: '8px', transform: 'rotateZ(-70deg)' }"
+        :width="radius * 2"
+        :height="radius * 2"
       >
         <circle
-          stroke-dasharray="300%"
-          r="50%"
-          cx="50%"
-          cy="50%"
+          stroke="white"
+          stroke-width="2"
           fill="transparent"
-          :style="{ strokeDashoffset: `${speedProgress().circle}%` }"
+          :stroke-dasharray="`${ circumFerence } ${ circumFerence }`"
+          :style="{
+            strokeDashoffset,
+            transition: 'stroke-dashoffset .3s ease'
+          }"
+          :r="normalizedRadius"
+          :cx="radius"
+          :cy="radius"
+          transform="rotate(-90 0 0)"
+          transform-origin="center center"
         ></circle>
       </svg>
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         class="spinned-arrow"
+        :style="{
+          transform: `rotate(${speedProgress().r}deg)`,
+          transition: 'transform .3s ease'
+        }"
         transform-origin="center"
-        :style="{ padding: '1px', transform: `rotateZ(${speedProgress().arrow}deg)` }"
       >
         <path
-          stroke-width="1"
+          stroke-width="2"
           fill="none"
-          d="M29.9 50.3l-4.5-4 4-4.5"
+          transform="translate(2 14) rotate(-50 0 0)"
+          d="M22.155 26.357l3.904 3.05 3.048-3.904"
         ></path>
       </svg>
     </div>
+
+    <svgicon
+      v-if="!isSpeedIcon && iconPath"
+      ref="iconSvg"
+      :name="iconName"
+      :data-name="iconName"
+      width="100%"
+      height="100%"
+      :original="true"
+    />
 
     <img
       v-if="!iconPath && image"
@@ -78,14 +104,15 @@
 
 <script>
 import axios from 'axios/index'
-import colors from "../../color.json";
-import defaultValues from '../../defaultIconsSize.json';
+import colors from '../../color.json'
+import defaultValues from '../../defaultIconsSize.json'
 
 const arrKey = 'RTK_ICONS'
+const defaultIconSize = 55 // Для иконки скорости используется именно этот размер
 
 export default {
   name: "RtIcon",
-  data: function() {
+  data: () => {
     return {
       iconPath: null,
       iconCaptionColor: null
@@ -146,7 +173,10 @@ export default {
       styles.background = this.bg ? this.bg : (defaultValues[this.type] ? defaultValues[this.type].bg : null)
       styles.fill = this.fill ? this.fill : (defaultValues[this.type] ? defaultValues[this.type].fill : null)
       styles.stroke = this.color ? this.color : (defaultValues[this.type] ? defaultValues[this.type].color : null)
-      if (this.size) {
+      if (this.isSpeedIcon) {
+        styles.width = `${defaultIconSize}px`
+        styles.height = `${defaultIconSize}px`
+      } else if (this.size) {
         styles.width = `${this.size}px`
         styles.height = `${this.size}px`
       } else {
@@ -163,6 +193,18 @@ export default {
         'icon_406',
         'INTERNET_SPEED_0'
       ].indexOf(this.type) > -1 && !isNaN(parseInt(this.caption, 10))
+    },
+    radius () {
+      return defaultIconSize / 2
+    },
+    circumFerence () {
+      return this.normalizedRadius * 2 * Math.PI
+    },
+    normalizedRadius () {
+      return this.radius - 3 - 2 * 2
+    },
+    strokeDashoffset () {
+      return this.circumFerence - this.speedProgress().proc / 100 * this.circumFerence
     }
   },
   methods: {
@@ -185,7 +227,7 @@ export default {
     getPath() {
       var name = this.iconName
       var base_path = window.RTK_STYLE && window.RTK_STYLE.base_path ? window.RTK_STYLE.base_path : '';
-      var icons_path = window.RTK_STYLE && window.RTK_STYLE.icons_path ? window.RTK_STYLE.icons_path : 'https://cryingjoker.github.io/vue-rt-style-kit-pages/static/icons/';
+      var icons_path = window.RTK_STYLE && window.RTK_STYLE.icons_path ? window.RTK_STYLE.icons_path : 'https://cryingjoker.github.io/vue-stylekit/static/icons/';
       if (name) {
         window[arrKey][name] = {}
         return axios.request({
@@ -203,8 +245,8 @@ export default {
     },
     setPath() {
       let pathSource = window[arrKey][this.iconName]
-      var icon = require('vue-svgicon')
-      var arr = {}
+      let icon = require('vue-svgicon')
+      let arr = {}
       arr[this.iconName] = pathSource
       icon.register(arr)
       this.iconPath = true
@@ -224,12 +266,15 @@ export default {
 
         // Извлекаем процентное отношение шкалы скорости
         let proc = (val > maxSpeed) ? 100 : (val * 100 / maxSpeed)
+        if (proc > 90) proc = 90 // Ограничиваем вращение, чтобы плашка сверху не перекрывала стрелку
 
         // Собираем диапозоны позиций для круга и стрелки
         let pos = this.getActualSpeedPos()
 
         speed.circle = pos.circle.max - ((pos.circle.max - pos.circle.min) / 100 * proc)
         speed.arrow = pos.arrow.min + ((pos.arrow.max - pos.arrow.min) / 100 * proc)
+        speed.proc = parseInt(proc, 10)
+        speed.r = parseInt(pos.r.min + ((pos.r.max - pos.r.min) / 100 * proc), 10)
       }
       return speed
     },
@@ -243,14 +288,18 @@ export default {
         arrow: { // Для стрелочки инвертированное значение позиции
           min: -134,
           max: 165
+        },
+        r: {
+          min: -38,
+          max: 314
         }
       }
     }
   },
-  mounted() {
+  beforeMount() {
     if (!window[arrKey]) window[arrKey] = {}
     // @TODO - add watcher for loaded icons
     this.getPath()
   }
-};
+}
 </script>
