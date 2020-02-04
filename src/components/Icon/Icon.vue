@@ -31,13 +31,13 @@
           :stroke-dasharray="`${ circumFerence } ${ circumFerence }`"
           :style="{
             strokeDashoffset,
-            transition: 'stroke-dashoffset .3s ease'
+            transition: 'stroke-dashoffset .3s ease',
+            transform: 'rotate(-90deg)',
+            transformOrigin: 'center center'
           }"
           :r="normalizedRadius"
           :cx="radius"
           :cy="radius"
-          transform="rotate(-90 0 0)"
-          transform-origin="center center"
         ></circle>
       </svg>
       <svg
@@ -53,7 +53,7 @@
         <path
           stroke-width="2"
           fill="none"
-          transform="translate(2 14) rotate(-50 0 0)"
+          transform="translate(1.8 13) rotate(-50 0 0)"
           d="M22.155 26.357l3.904 3.05 3.048-3.904"
         ></path>
       </svg>
@@ -287,7 +287,7 @@ export default {
         },
         r: {
           min: -38,
-          max: 314
+          max: 316
         }
       }
     }
