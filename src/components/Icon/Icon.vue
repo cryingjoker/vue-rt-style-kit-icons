@@ -21,6 +21,7 @@
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         class="spinned-circle"
+        style="transform: rotate(-90deg); transform-origin: center center;"
         :width="radius * 2"
         :height="radius * 2"
       >
@@ -31,9 +32,7 @@
           :stroke-dasharray="`${ circumFerence } ${ circumFerence }`"
           :style="{
             strokeDashoffset,
-            transition: 'stroke-dashoffset .3s ease',
-            transform: 'rotate(-90deg)',
-            transformOrigin: 'center center'
+            transition: 'stroke-dashoffset .3s ease'
           }"
           :r="normalizedRadius"
           :cx="radius"
