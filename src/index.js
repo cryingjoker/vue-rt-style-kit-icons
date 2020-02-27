@@ -21,7 +21,7 @@ const VueRtStyle = {
 
             Vue.use(svgicon);
             Vue.component(Icon.name, Icon);
-            Vue.component(Logo.name, Logo)
+            Vue.component(Logo.name, Logo.component)
             Vue.component(LogoCoBranding.name, LogoCoBranding)
             Vue.component(ValidationIcon.name, ValidationIcon.component);
 
