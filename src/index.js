@@ -47,7 +47,9 @@ if (settingsKey) {
 // @Deprecated
 window.RTK_STYLE_KIT_ICON_VER = version;
 VueRtStyle.version = version;
-
+window.addEventListener('getVueRtStyleVersion', function () {
+    window.postMessage({from: "vue-rt-style-kit", type: "setVersion", label: "icons", version: version}, "*");
+})
 export default VueRtStyle;
 export {
     Logo,
