@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>273-C80px</title>
+    <desc>Created with Sketch.</desc>
+    <g id="NEW_icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons_UD_new-Copy" transform="translate(-2462.000000, -34629.000000)">
+            <g id="273-C80px" transform="translate(2462.000000, 34629.000000)">
+                <circle id="Oval-Copy-1516" fill="#FF4F12" cx="40" cy="40" r="40"></circle>
+                <g id="273-B32px-Copy-10" transform="translate(12.000000, 12.000000)">
+                    <g id="Group" transform="translate(19.250000, 42.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                        <rect id="Rectangle" x="0" y="0" width="1.75" height="5.25"></rect>
+                        <rect id="Rectangle" x="5.25" y="0" width="1.75" height="5.25"></rect>
+                        <rect id="Rectangle" x="10.5" y="0" width="1.75" height="5.25"></rect>
+                        <rect id="Rectangle" x="15.75" y="0" width="1.75" height="5.25"></rect>
+                    </g>
+                    <g id="Group" transform="translate(19.250000, 8.750000)" fill="#FFFFFF" fill-rule="nonzero">
+                        <rect id="Rectangle" x="0" y="0" width="1.75" height="5.25"></rect>
+                        <rect id="Rectangle" x="5.25" y="0" width="1.75" height="5.25"></rect>
+                        <rect id="Rectangle" x="10.5" y="0" width="1.75" height="5.25"></rect>
+                        <rect id="Rectangle" x="15.75" y="0" width="1.75" height="5.25"></rect>
+                    </g>
+                    <g id="Group" transform="translate(42.000000, 19.250000)" fill="#FFFFFF" fill-rule="nonzero">
+                        <rect id="Rectangle" x="0" y="0" width="5.25" height="1.75"></rect>
+                        <rect id="Rectangle" x="0" y="5.25" width="5.25" height="1.75"></rect>
+                        <rect id="Rectangle" x="0" y="10.5" width="5.25" height="1.75"></rect>
+                        <rect id="Rectangle" x="0" y="15.75" width="5.25" height="1.75"></rect>
+                    </g>
+                    <g id="Group" transform="translate(8.750000, 19.250000)" fill="#FFFFFF" fill-rule="nonzero">
+                        <rect id="Rectangle" x="0" y="0" width="5.25" height="1.75"></rect>
+                        <rect id="Rectangle" x="0" y="5.25" width="5.25" height="1.75"></rect>
+                        <rect id="Rectangle" x="0" y="10.5" width="5.25" height="1.75"></rect>
+                        <rect id="Rectangle" x="0" y="15.75" width="5.25" height="1.75"></rect>
+                    </g>
+                    <path d="M40.25,14 L15.75,14 C14.7875,14 14,14.7875 14,15.75 L14,40.25 C14,41.2125 14.7875,42 15.75,42 L40.25,42 C41.2125,42 42,41.2125 42,40.25 L42,15.75 C42,14.7875 41.2125,14 40.25,14 Z M40.25,40.25 L15.75,40.25 L15.75,15.75 L40.25,15.75 L40.25,40.25 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                    <path d="M40.25,14 L15.75,14 C14.7875,14 14,14.7875 14,15.75 L14,40.25 C14,41.2125 14.7875,42 15.75,42 L40.25,42 C41.2125,42 42,41.2125 42,40.25 L42,15.75 C42,14.7875 41.2125,14 40.25,14 Z M40.25,40.25 L15.75,40.25 L15.75,15.75 L40.25,15.75 L40.25,40.25 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                    <path d="M35,19.25 L21,19.25 C20.0375,19.25 19.25,20.0375 19.25,21 L19.25,35 C19.25,35.9625 20.0375,36.75 21,36.75 L35,36.75 C35.9625,36.75 36.75,35.9625 36.75,35 L36.75,21 C36.75,20.0375 35.9625,19.25 35,19.25 Z M35,35 L21,35 L21,21 L35,21 L35,35 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                    <rect id="Rectangle" x="0" y="0" width="56" height="56"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

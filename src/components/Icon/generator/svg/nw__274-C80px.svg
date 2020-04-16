@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>274-C80px</title>
+    <desc>Created with Sketch.</desc>
+    <g id="NEW_icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons_UD_new-Copy" transform="translate(-1172.000000, -34884.000000)">
+            <g id="274-C80px" transform="translate(1172.000000, 34884.000000)">
+                <circle id="Oval-Copy-1678" fill="#FF4F12" cx="40" cy="40" r="40"></circle>
+                <g id="274-B32px-Copy-10" transform="translate(12.000000, 12.000000)">
+                    <path d="M28,7 C23.17,7 19.25,10.92 19.25,15.75 L19.25,26.25 C19.25,31.08 23.17,35 28,35 C32.83,35 36.75,31.08 36.75,26.25 L36.75,15.75 C36.75,10.92 32.83,7 28,7 Z M35,26.25 C35,30.1175 31.8675,33.25 28,33.25 C24.1325,33.25 21,30.1175 21,26.25 L21,15.75 C21,11.8825 24.1325,8.75 28,8.75 C31.8675,8.75 35,11.8825 35,15.75 L35,26.25 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                    <g id="Group" transform="translate(14.000000, 26.250000)" fill="#FFFFFF" fill-rule="nonzero">
+                        <path d="M14,12.25 C7.2275,12.25 1.75,6.7725 1.75,0 L0,0 C0,7.735 6.265,14 14,14 C21.735,14 28,7.735 28,0 L26.25,0 C26.25,6.7725 20.7725,12.25 14,12.25 Z" id="Path"></path>
+                        <g transform="translate(8.750000, 14.000000)" id="Rectangle">
+                            <rect x="4.375" y="0" width="1.75" height="7"></rect>
+                            <rect x="0" y="7" width="10.5" height="1.75"></rect>
+                        </g>
+                    </g>
+                    <rect id="Rectangle" x="0" y="0" width="56" height="56"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
