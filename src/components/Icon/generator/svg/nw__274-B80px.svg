@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>274-B80px</title>
+    <desc>Created with Sketch.</desc>
+    <g id="274-B80px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <path d="M40,10 C33.1,10 27.5,15.6 27.5,22.5 L27.5,37.5 C27.5,44.4 33.1,50 40,50 C46.9,50 52.5,44.4 52.5,37.5 L52.5,22.5 C52.5,15.6 46.9,10 40,10 Z M50,37.5 C50,43.025 45.525,47.5 40,47.5 C34.475,47.5 30,43.025 30,37.5 L30,22.5 C30,16.975 34.475,12.5 40,12.5 C45.525,12.5 50,16.975 50,22.5 L50,37.5 Z" id="Shape" fill="#101828" fill-rule="nonzero"></path>
+            <g id="Group" transform="translate(20.000000, 37.500000)" fill="#101828" fill-rule="nonzero">
+                <path d="M20,17.5 C10.325,17.5 2.5,9.675 2.5,0 L0,0 C0,11.05 8.95,20 20,20 C31.05,20 40,11.05 40,0 L37.5,0 C37.5,9.675 29.675,17.5 20,17.5 Z" id="Path"></path>
+                <g transform="translate(12.500000, 20.000000)" id="Rectangle">
+                    <rect x="6.25" y="0" width="2.5" height="10"></rect>
+                    <rect x="0" y="10" width="15" height="2.5"></rect>
+                </g>
+            </g>
+            <rect id="Rectangle" x="0" y="0" width="80" height="80"></rect>
+        </g>
+    </g>
+</svg>
